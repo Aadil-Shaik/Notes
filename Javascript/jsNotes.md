@@ -122,6 +122,18 @@ you can use variables regardless of where you declared them
 
 Spread operator :
 
+```bash
+   const odd = [1,3,5];
+   const combined = [2,...odd, 4,6];
+   console.log(combined);          // Output => [ 2, 1, 3, 5, 4, 6 ]
+```
+```bash
+   function f(a, b, ...args) {
+	  console.log(args);              // Output => [ 3, 4, 5 ]
+   }
+   f(1, 2, 3, 4, 5);
+```
+
 ## Operations on Arrays
 
 - Arrays in js are objects with index as keys
