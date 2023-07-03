@@ -2,6 +2,14 @@
 
 credit : Sheryians Coding School
 
+#### Extra :
+
+add defer to load js after html and css have loaded
+
+```bash
+	<script src="xyz" defer ></script>
+```
+
 ## Variables and Constants
 
  | var       | let, const      | 
