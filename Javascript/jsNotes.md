@@ -93,7 +93,7 @@ function abcd(){
 - Execution context is a container where the function's code is executed and it is always created whenever a function is called.
 
 
-### Hoising
+### Hoisting
 
 when variables and functions are hoisted, it means that their declrations are moved to the top of the code 
 
