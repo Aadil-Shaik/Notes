@@ -88,7 +88,7 @@ function abcd(){
 | a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xyz()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lexical environment|
 |:------- | 
 
-- Lexical environment defines the scope of function abcd() and scope chain ( it holds the access of it's parents and parent's parents and such but it cannot access children ) in this case it cannot access **b**
+- Lexical environment defines the scope of function abcd() and scope chain ( it holds the access of it's parents and parent's parents and such but it cannot access children ) in this case it cannot access **x**
 
 - Execution context is a container where the function's code is executed and it is always created whenever a function is called.
 
