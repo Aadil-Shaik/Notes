@@ -88,14 +88,14 @@ function abcd(){
 | a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xyz()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lexical environment|
 |:------- | 
 
-- Lexical environment defines the scope of function abcd() and scope chain ( it holds the access of it's parents and parent's parents and such but it cannot access children ) in this case it cannot access **x**
+- Lexical environment defines the scope of function abcd() and scope chain ( it holds the access of its parents and parent's parents and such but it cannot access children ) in this case it cannot access **x**
 
 - Execution context is a container where the function's code is executed and it is always created whenever a function is called.
 
 
 ### Hoisting
 
-when variables and functions are hoisted, it means that their declrations are moved to the top of the code 
+when variables and functions are hoisted, it means that their declarations are moved to the top of the code 
 
 you can use variables regardless of where you declared them
 
@@ -107,7 +107,7 @@ you can use variables regardless of where you declared them
 
 ```bash
     var a = 5 ;
-    var b = a ;  // changes to 'b' doesn't effect 'a'
+    var b = a ;  // changes to 'b' doesn't affect 'a'
 ```
 
 **Reference** : call by reference => ( ) , [ ] , { } (anything with brackets)
@@ -260,19 +260,11 @@ example: if(1), if(-1) both are **Truthy**
     }
 ```
 
-## callback function
-
-```bash
-    setTimeout(function(){
-        console.log(" This ran after 2 seconds ") ;
-    }, 2000 ) ;  
-```
-
 ## First class functions
 
 - treat functions as values
 
-```bash
+```js
     function abcs(a){
         a() ;
     }
@@ -281,4 +273,185 @@ example: if(1), if(-1) both are **Truthy**
 
     Output: Hello World!
 ```
+
+When a function is treated as normal values or variables. You can save them or pass them as arguments to another function
+
+## Higher Order functions
+
+- A function which accepts another function as parameter or returns a function or both 
+
+eg. forEach function always takes another function instide it so it is a higher order function
+
+## Constructor function
+
+- mold function which creates instances 
+- normal function which uses this 
+- to use instance, use new keyword
+
+```js
+function abcd(color){
+    this.width = 100px;
+    this.height = 100px;
+    this.color = color;
+}
+```
+
+A function which whenever invoked with "new" keyword, returns an object. If we use "this" keyword inside that function, it returns an object with all of the properties and methods mentioned inside that function which were mentioned inside that function with this keyword.
+
+## iife - immediately invoked function expression
+
+- making private variables
+```bash
+( function(){
+    var a = 12;
+} )()       output: console.log(a)  // var a not defined
+```
+look closesly at the nameless function which is created an executed immediately and it is destroyed. cannot access function as it is nameless.
+
+- To access the private variable, return it's reference. Here we are returning an object
+
+```js
+var ans = ( function(){
+    var a = 12;
+
+    return{
+        getter: function(){
+            console.log(a);
+        },
+        setter: function(){
+            a = val;
+        }
+    }
+
+} )()
+
+ans.getter();       // 12
+ans.setter(24);     // 24
+ans.getter();       // 12
+```
+
+## Prototype
+
+- whenever you create an object, you get a prototype property by default
+- it contains helper methods like .length(), .hasOwnProperty() etc
+
+### Prototype Inheritance
+
+```js
+var human = {
+    canFly: false;
+    haveEmotions: true;
+    canDie: true;
+}
+var ITStudent = {
+    canWasteTime: true;
+    canGoJobless: true;
+}
+ITStudent.__proto__ = human; 
+```
+
+## this call apply bind
+
+#### this:
+
+```js
+console.log(this);  // in global scope gives window
+
+function abcd(){
+    console.log(this);  // in function scope gives window
+}
+abcd();
+
+var obj = {
+    name: function(){
+        console.log(this);  // in method scope gives obj
+    }
+}
+obj.name();
+```
+
+- in any method, this keyword refers to the parent object
+
+```js
+var button = document.querySelector("button");
+
+button.addEventListener("click", function(){
+    console.log(this);      // returns whole button tag as written in html
+})
+
+button.addEventListener("click", function(){
+    this.style.color = "red";
+})
+```
+
+#### call apply bind
+
+- when you want to point a function by default to a object
+
+#### call
+
+```js
+function abcd(){
+    console.log(this);  // gives object instead of window
+}
+
+var obj = { age: 24 }
+
+abcd.call(obj)
+```
+```js
+function abcd( val1, val2, val3 ){
+    console.log(this, val1);  // this is how you give values after object
+}
+
+var obj = { age: 24 }
+
+abcd.call(obj, 1, 2, 3)
+```
+
+#### apply
+
+- it's the form of call which limits you to use only 2 parameters as arguments
+- you use an array to define all other arguments but array is not passed in the end result
+
+```js
+function abcd( val1, val2, val3 ){
+    console.log(this, val1);  // only values are printed not array
+}
+
+var obj = { age: 24 }
+
+abcd.apply(obj, [1, 2, 3])
+```
+
+#### bind
+
+- mostly used in react
+
+```js
+function abcd(){
+    console.log(this);  // gives no output but bindes abcd() to obj
+}
+
+var obj = { age: 24 }
+
+abcd.call(obj);
+```
+
+```js
+function abcd(){
+    console.log(this); 
+}
+
+var obj = { age: 24 }
+
+var bindedfunc = abcd.call(obj);
+bindedfunc();   // returned obj
+```
+
+## Pure functions
+
+&nbsp; 1. it should always return same ouotput for same input
+
+&nbsp; 2. it will never change or update the value of a global variable
 
