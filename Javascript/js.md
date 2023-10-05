@@ -243,6 +243,15 @@ example: if(1), if(-1) both are **Truthy**
 ```
 - for each fetches the value not reference so no changes are made on original array
 
+```bash
+    var a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] ;
+    a.forEach(function( val, index ){
+        console.log( index ) ;
+    })
+```
+- passing another variable in function gives index of array starting from 0
+
+
 **for in** :
 
 - used with objects
