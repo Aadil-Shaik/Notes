@@ -27,8 +27,8 @@ var abcd = (param) => {};
 #### Fat arrow function with implicit return
 
 ```js
-    var abcs = () => 7;
-    console.log(var());     // prints 7
+    var abcd = () => 7;
+    console.log(abcd());     // prints 7
 ```
 
 ## Template Literals
