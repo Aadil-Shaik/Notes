@@ -1,0 +1,5 @@
+# Tailwind CSS
+
+- go to tailwind website and get the play cdn
+- install postCSS if not and do npm init -y and -p
+
