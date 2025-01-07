@@ -57,7 +57,7 @@ add defer to load js after html and css have loaded
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type **window** in console in browser to see all and here variables declared using **var** are added
 
-**Browser Context API** : It is the set of APIs that allow js to access and interact with the browser's context. The context is th collextion of objects and properties that provide information about the browser, the current page, and the user's environment.
+**Browser Context API** : It is the set of APIs that allow js to access and interact with the browser's context. The context is the collection of objects and properties that provide information about the browser, the current page, and the user's environment.
 Window, Document, Location, Navigator (browser's user agent to identify browser, OS and device by the website), Screen
 
 **Stack Memory and Heap Momory :**
